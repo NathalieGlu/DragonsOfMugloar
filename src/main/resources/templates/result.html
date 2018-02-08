@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dragons of Mugloar</title>
+</head>
+<body>
+<p th:text="'Knight stats: Attack: ' + ${knight.attack} + ', Armor: ' + ${knight.armor} +
+', Agility: ' + ${knight.agility} + ', Endurance: ' + ${knight.endurance}"/>
+
+<p th:text="'Dragon stats: Scale thickness: ' + ${dragon.scaleThickness} +
+            ', Claw sharpness: ' + ${dragon.clawSharpness} +
+            ', Wing strength: ' + ${dragon.wingStrength} +
+            ', Fire breath: ' + ${dragon.fireBreath} "/>
+
+        <h1>Result</h1>
+    <p th:text="'Result: ' + ${solution.result}"/>
+    <a href="/dragon">New game</a>
+</body>
+</html>
