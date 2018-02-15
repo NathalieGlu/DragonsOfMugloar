@@ -11,8 +11,8 @@ public class WeatherCode {
 
     @XmlElement
     private String code;
-
     private String condition;
+    private int hashCode = 0;
 
     public WeatherCode() {
     }
@@ -46,5 +46,26 @@ public class WeatherCode {
 
     public String getCondition() {
         return condition;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof BattleInfo))
+            return false;
+        WeatherCode weatherCode = (WeatherCode) o;
+        return weatherCode.code.equals(code) && weatherCode.condition.equals(condition);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = hashCode;
+        if (result == 0) {
+            result = code.hashCode();
+            result = 31 * result + condition.hashCode();
+            hashCode = result;
+        }
+        return result;
     }
 }

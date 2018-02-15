@@ -9,6 +9,7 @@ public class Dragon {
     private Integer clawSharpness;
     private Integer wingStrength;
     private Integer fireBreath;
+    private int hashCode = 0;
 
     public Dragon() {
     }
@@ -35,6 +36,7 @@ public class Dragon {
     public Integer getFireBreath() {
         return fireBreath;
     }
+
     public void setScaleThickness(Integer scaleThickness) {
         this.scaleThickness = scaleThickness;
     }
@@ -49,5 +51,18 @@ public class Dragon {
 
     public void setFireBreath(Integer fireBreath) {
         this.fireBreath = fireBreath;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof BattleInfo))
+            return false;
+        Dragon dragon = (Dragon) o;
+        return dragon.clawSharpness.equals(clawSharpness) &&
+                dragon.fireBreath.equals(fireBreath) &&
+                dragon.scaleThickness.equals(scaleThickness) &&
+                dragon.wingStrength.equals(wingStrength);
     }
 }
