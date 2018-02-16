@@ -1,4 +1,6 @@
-package ru.nathalie.model;
+package ru.nathalie.model.game;
+
+import java.util.Objects;
 
 public class Knight {
     private String name;
@@ -41,27 +43,20 @@ public class Knight {
 
     @Override
     public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof BattleInfo))
-            return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Knight knight = (Knight) o;
-        return knight.agility.equals(agility) && knight.armor.equals(armor)
-                && knight.attack.equals(attack) && knight.endurance.equals(endurance)
-                && knight.name.equals(name);
+        return hashCode == knight.hashCode &&
+                Objects.equals(name, knight.name) &&
+                Objects.equals(attack, knight.attack) &&
+                Objects.equals(armor, knight.armor) &&
+                Objects.equals(agility, knight.agility) &&
+                Objects.equals(endurance, knight.endurance);
     }
 
     @Override
     public int hashCode() {
-        int result = hashCode;
-        if (result == 0) {
-            result = name.hashCode();
-            result = 31 * result + Integer.hashCode(agility);
-            result = 31 * result + Integer.hashCode(armor);
-            result = 31 * result + Integer.hashCode(attack);
-            result = 31 * result + Integer.hashCode(endurance);
-            hashCode = result;
-        }
-        return result;
+
+        return Objects.hash(name, attack, armor, agility, endurance, hashCode);
     }
 }

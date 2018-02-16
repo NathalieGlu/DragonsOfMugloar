@@ -1,4 +1,4 @@
-package ru.nathalie.model;
+package ru.nathalie.model.game;
 
 import org.springframework.stereotype.Component;
 

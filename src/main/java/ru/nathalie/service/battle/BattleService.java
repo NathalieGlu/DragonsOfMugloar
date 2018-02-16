@@ -6,9 +6,9 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import ru.nathalie.config.AppProperties;
-import ru.nathalie.model.BattleInfo;
-import ru.nathalie.model.Dragon;
-import ru.nathalie.model.Solution;
+import ru.nathalie.model.game.BattleInfo;
+import ru.nathalie.model.game.Dragon;
+import ru.nathalie.model.solution.Solution;
 
 @Component
 public class BattleService {
@@ -33,7 +33,10 @@ public class BattleService {
     public String solveBattle(Integer gameId, Dragon dragon) {
         PropertyConfigurator.configure("log4j.properties");
 
-        Solution solution = new Solution(dragon);
+        Solution solution = null;
+        if (dragon != null) {
+            solution = new Solution(dragon);
+        }
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

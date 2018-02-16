@@ -1,4 +1,6 @@
-package ru.nathalie.model;
+package ru.nathalie.model.solution;
+
+import ru.nathalie.model.game.Dragon;
 
 public class Solution {
     private Dragon dragon;

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import ru.nathalie.config.AppProperties;
-import ru.nathalie.model.WeatherCode;
+import ru.nathalie.model.game.WeatherCode;
 
 @Component
 public class WeatherService {

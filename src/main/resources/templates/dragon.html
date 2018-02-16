@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dragons of Mugloar</title>
-    </head>
+</head>
 <body>
 <p th:text="'You fight with ' + ${knight.name}"/>
 <p th:text="'Attack: ' + ${knight.attack}"/>
@@ -10,12 +10,18 @@
 <p th:text="'Agility: ' + ${knight.agility}"/>
 <p th:text="'Endurance: ' + ${knight.endurance}"/>
 <p th:text="'Weather: ' + ${weather.condition}"/>
+<p th:text="'Suggestion: ' + ${dragonSuggestion.scaleThickness} + ', '
++ ${dragonSuggestion.clawSharpness} + ', '
++ ${dragonSuggestion.wingStrength} + ', '
++ ${dragonSuggestion.fireBreath} + '. '
++ ${suggestion}"/>
 <h1>Your dragon</h1>
-<form action="#" th:action="@{/dragon}" th:object="${dragon}" method="post">
-    <p>scaleThickness: <input type="text" th:field="*{scaleThickness}"/></p>
-    <p>clawSharpness: <input type="text" th:field="*{clawSharpness}"/></p>
-    <p>wingStrength: <input type="text" th:field="*{wingStrength}"/></p>
-    <p>fireBreath: <input type="text" th:field="*{fireBreath}"/></p>
+<form action="#" th:action="@{/dragon}" method="post">
+    <p>scaleThickness: <input type="text" th:value="${dragon.scaleThickness}" name="scaleThickness"/></p>
+    <p>clawSharpness: <input type="text" th:value="${dragon.clawSharpness}" name="clawSharpness"/></p>
+    <p>wingStrength: <input type="text" th:value="${dragon.wingStrength}" name="wingStrength"/></p>
+    <p>fireBreath: <input type="text" th:value="${dragon.fireBreath}" name="fireBreath"/></p>
+    <input type="hidden" th:value="${gameid.gameid}" name="gameid"/>
     <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>

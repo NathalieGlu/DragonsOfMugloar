@@ -1,4 +1,4 @@
-package ru.nathalie.model;
+package ru.nathalie.model.solution;
 
 public class Result {
 

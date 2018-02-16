@@ -1,4 +1,4 @@
-package ru.nathalie.model;
+package ru.nathalie.model.game;
 
 import org.springframework.stereotype.Component;
 
@@ -30,7 +30,7 @@ public class WeatherCode {
                 condition = "Storm";
                 break;
             case "HVA":
-                condition = "Heave rain";
+                condition = "Heavy rain";
                 break;
             case "T E":
                 condition = "Long day";
